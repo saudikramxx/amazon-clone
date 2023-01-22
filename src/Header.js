@@ -1,14 +1,18 @@
 import React from 'react'
 import './Header.css'
+import {Link} from "react-router-dom"
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 function Header() {
   return (
   <div className='header'>
-    <img 
+    <Link to = "/">
+      <img 
     alt='amzaon icon'
     className='header__logo'
     src='https://pngimg.com/uploads/amazon/amazon_PNG11.png'/>
+    
+    </Link>
     <div className='header__search'>
     
     <input className='header__searchInput'
@@ -50,11 +54,16 @@ function Header() {
       </div>
 
       
-      <div className='header__optionBasket'>
+      
+      <Link to= "/checkout">
+        
+        <div className='header__optionBasket'>  
         <ShoppingBasketIcon/>
         <span className='header__optionlineTwo
         header__basketCount'>0</span>
-      </div>
+        </div>
+      </Link>  
+      
   
     </div>
 
