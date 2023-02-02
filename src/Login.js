@@ -1,16 +1,33 @@
+import userEvent from '@testing-library/user-event';
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link,Navigate,useNavigate} from 'react-router-dom'
+import { auth } from './firebase';
 import "./Login.css"
 function Login() {
+    const navigate = useNavigate(); 
   const [email,setEmail] = useState("");
   const [password, setPassword] = useState("");
   const signIN = e => {
     e.preventDefault();
-    // firebase login 
+    auth
+    .signInWithEmailAndPassword(email,password)
+    .then(auth=>{
+        navigate("/")
+    })
+    .catch(error=>{alert(error.message)})
   }
+  
   const register = e =>{
     e.preventDefault();
-    //firebase register
+    auth
+    .createUserWithEmailAndPassword(email, password)
+    .then((auth) => {
+        console.log(auth);
+        if (auth){
+            navigate("/")
+        }
+    })
+    .catch(error => alert(error.message))
   }
     return (
     <div className='login'>
