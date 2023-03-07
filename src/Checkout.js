@@ -1,4 +1,3 @@
-import userEvent from '@testing-library/user-event';
 import React from 'react'
 import "./Checkout.css"
 import CheckoutProduct from './CheckoutProduct';
@@ -28,9 +27,6 @@ console.log(user)
               rating={item.rating}
             />
           ))}
-          {/*CheckoutPoduct*/}
-          {/*CheckoutPoduct*/}
-          {/*CheckoutPoduct*/}   
         </div>
       </div>
       <div className='checkout_right'>
